@@ -5,19 +5,25 @@ function mayuscula(nombre) {
    // Debe devolver el mismo nombre, pero con la primera letra en mayúscula.
    // [Ejemplo]: "mario" ----> "Mario".
    // Tu código:
+      var caracter=function(){return nombre[0].toUpperCase();}
+      var resto=function(){return nombre.slice(1,nombre.length);}
+      var unir=function(cb1,cb2){return cb1+cb2}
+      var R= unir(caracter(),resto()); return R;
 }
 
 function invocarCallback(cb) {
    // Invoca/ejecuta el callback `cb`.
    // [NOTA]: no debes reotrnar nada.
    // Tu código:
+   cb();
 }
 
 function operacionMatematica(num1, num2, cb) {
    // En este ejercicio recibirás dos números y un callback.
    // El callback realiza una operación matemática, por lo que necesita de los dos números.
    // Retorna el resultado del callback pasándole como parámetros los números.
-   // Tu código:
+   // Tu código:  
+   return cb(1,2);
 }
 
 function sumarArray(arrayOfNumbers, cb) {
@@ -26,6 +32,11 @@ function sumarArray(arrayOfNumbers, cb) {
    // Este resultado debes pasárselo como argumento al callback recibido.
    // [NOTA]: no debes reotrnar nada.
    // Tu código:
+   let sum=0;
+   for (let i = 0; i < arrayOfNumbers.length; i++) {
+      sum=sum+arrayOfNumbers[i];
+   }
+   cb(sum);
 }
 
 function forEach(array, cb) {
@@ -33,6 +44,7 @@ function forEach(array, cb) {
    // Debes iterar sobre el arreglo, y por cada elemento ejecutar el callback.
    // Debes pasarle el elemento como argumento al callback.
    // Tu código:
+   array.forEach((X) =>{cb(X);});
 }
 
 function map(array, cb) {
@@ -40,12 +52,20 @@ function map(array, cb) {
    // Tiene que guardar el resultado devuelto por el callback en cada elemento dentro de un nuevo arreglo.
    // Retorna el nuevo arreglo.
    // Tu código:
+   var neoArray=[];
+   array.map((X) =>{var R=cb(X); neoArray.push(R);});
+   return neoArray;
 }
 
 function filter(arrayOfStrings) {
    // Debes identificar todos los elementos el arreglo que comiencen con la letra "a".
    // Luego retorna un nuevo arreglo con estos elementos.
    // Tu código:
+   var neoArrayOfStrings=[];
+   arrayOfStrings.forEach((string)=>{
+      if(string[0]==="a"){neoArrayOfStrings.push(string);};
+   });
+   return neoArrayOfStrings;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
